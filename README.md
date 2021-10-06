@@ -1,3 +1,8 @@
+<style>
+H3{color:Blue !important;}
+H4{color:DarkBlue !important;}
+</style>
+
 # memo-javascript
 
 ### Console
