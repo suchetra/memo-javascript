@@ -86,8 +86,109 @@ JavaScript has the built-in Math object or Number object. They are collections o
 
 Var, let, const
 
-* L’instruction let
-* L’instruction const
+* L’instruction let 
+  * pas obligatoire de déclarer une variable avec sa valeur initiale
+  * on peut modifier sa valeur après sa déclaration
+  * Sa principale caractéristique est sa portée : elle est limité à celle du bloc courant (un bloc en Javascript, c’est ce qu’on retrouve entre accolades : une comparaison en if, une boucle while etc.)
+* L’instruction const 
+  * doit être déclaré au début
+  * ne peut pas être re-déclarer
 * L’instruction var
-
+  * Comme let, on peut aussi ne pas définir de valeur initiale, la variable aura donc une valeur undefined
+  * La portée de la variable est celle du contexte dans lequel elle est déclarée (dans ou hors fonction)
+  * La déclaration sans instruction var (exemple : maVar = ‘test’) revient à écrire var maVar = ‘test’ dans un contexte global. La variable devient donc une propriété de l’objet global (Objet window en javascript)
 https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences-b0f14caa2049
+
+## CONDITIONAL STATEMENTS
+
+### If Statement
+### If...Else Statements
+
+> if (false) {
+>  console.log('The code in this block will not run.');
+>} else {
+>  console.log('But the code in this block will!');
+>}
+
+### Comparison Operators
+* Less than: <
+* Greater than: >
+* Less than or equal to: <=
+* Greater than or equal to: >=
+* Is equal to: ===
+* Is not equal to: !==
+
+### Logical Operators
+* the and operator (&&)
+* the or operator (||)
+* the not operator, otherwise known as the bang operator (!)
+
+### Truthy and Falsy
+The list of falsy values includes:
+
+* 0
+* Empty strings like "" or ''
+* null which represent when there is no value at all
+* undefined which represent when a declared variable lacks a value
+* NaN, or Not a Number
+
+### Truthy and Falsy Assignment
+
+> let defaultName;
+> if (username) {
+>  defaultName = username;
+> } else {
+>  defaultName = 'Stranger';
+> }
+
+We can use a **short-hand syntax** for the code above:
+
+> let defaultName = username || 'Stranger';
+
+Because || or statements check the left-hand condition first, the variable defaultName will be assigned the actual value of username if it is truthy, and it will be assigned the value of 'Stranger' if username is falsy. This concept is also referred to as **short-circuit evaluation**.
+
+### Ternary Operator
+
+> let favoritePhrase = 'Love That!';
+
+> if (favoritePhrase === 'Love That!') {
+>   console.log('I love that!');
+> } else {
+>   console.log("I don't love that!");
+> }
+
+transformé en :
+
+> favoritePhrase === 'Love That!' ? console.log('I love that!') : console.log("I don't love that!");
+
+### Else If Statements
+
+> let stopLight = 'yellow';
+ 
+> if (stopLight === 'red') {
+>   console.log('Stop!');
+> } else if (stopLight === 'yellow') {
+>   console.log('Slow down.');
+> } else {
+>   console.log('Caution, unknown!');
+> }
+
+### The switch keyword
+
+> let athleteFinalPosition = 'first place';
+
+> switch (athleteFinalPosition) {
+>   case 'first place' :
+>   console.log('You get the gold medal!');
+>   break;
+>   case 'second place' :
+>   console.log('You get the silver medal!');
+>   break;
+>   case 'third place' :
+>   console.log('You get the bronze medal!');
+>   break;
+>   default:
+>   console.log('No medal awarded.');
+>   break;
+> }
+
