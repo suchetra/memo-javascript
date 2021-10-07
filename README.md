@@ -89,8 +89,9 @@ Var, let, const
 * L’instruction let 
   * pas obligatoire de déclarer une variable avec sa valeur initiale
   * on peut modifier sa valeur après sa déclaration
-  * Sa principale caractéristique est sa portée : elle est limité à celle du bloc courant (un bloc en Javascript, c’est ce qu’on retrouve entre accolades : une comparaison en if, une boucle while etc.)
+  * Sa principale caractéristique est sa portée : elle est limité à celle du bloc courant (un bloc en Javascript, c’est ce qu’on retrouve entre accolades : une comparaison en if, une boucle while etc.), pour la rendre globale, il faut simplement la définir hors de toute fonction.
 * L’instruction const 
+  * portée bloc, pour la rendre globale, il faut simplement la définir hors de toute fonction.
   * doit être déclaré au début
   * ne peut pas être re-déclarer
 * L’instruction var
@@ -192,3 +193,128 @@ transformé en :
 >   break;
 > }
 
+## Functions
+
+### Function Declarations
+
+A function declaration consists of:
+
+The function keyword.
+The name of the function, or its identifier, followed by parentheses.
+A function body, or the block of statements required to perform a specific task, enclosed in the function’s curly brackets, { }.
+
+ 
+> function greetWorld() {
+>   console.log('Hello, World!');
+> }
+
+**Calling a Function**
+
+> greetWorld(); // Output: Hello, World!
+
+Be aware of the **hoisting** feature in JavaScript which allows access to function declarations before they’re defined. Since hoisting isn’t considered good practice, we simply want you to be aware of this feature.
+
+> greetWorld(); // Output: Hello, World!
+ 
+> function greetWorld() {
+>   console.log('Hello, World!');
+> }
+
+### Parameters and Arguments
+
+When declaring a function, we can specify its parameters. Parameters allow functions to accept input(s) and perform a task using the input(s). 
+
+> function calculateArea(width, height) {
+>     console.log(width * height);
+> }
+
+width, height are parameters.
+
+The values that are passed to the function when it is called are called arguments. Arguments can be passed to the function as values or variables.
+
+> calculateArea(10, 6);
+
+10, 6 are arguments as values.
+
+or
+
+> const rectWidth = 10;
+> const rectHeight = 6;
+
+> calculateArea(rectWidth, rectHeight);
+
+rectWidth, rectHeight are arguments as variables.
+
+### Default Parameters
+
+> function greeting (name = 'stranger') {
+>   console.log(`Hello, ${name}!`)
+> }
+ 
+> greeting('Nick') // Output: Hello, Nick!
+> greeting() // Output: Hello, stranger!
+
+### Return
+
+> By default that resulting value is undefined.
+
+> function rectangleArea(width, height) {
+>   let area = width * height;
+> }
+> console.log(rectangleArea(5, 7)) // Prints undefined
+
+When a return statement is used in a function body, the execution of the function is stopped and the code that follows it will not be executed.
+
+> function rectangleArea(width, height) {
+>   if (width < 0 || height < 0) {
+>     return 'You need positive integers to calculate area!';
+>   }
+>   return width * height;
+> }
+
+### Helper Functions
+
+We can use functions to section off small bits of logic or tasks, then use them when we need to. Writing helper functions can help take large and difficult tasks and break them into smaller and more manageable tasks.
+
+> function multiplyByNineFifths(number) {
+>   return number * (9/5);
+> };
+ 
+> function getFahrenheit(celsius) {
+>   return multiplyByNineFifths(celsius) + 32;
+> };
+ 
+> getFahrenheit(15); // Returns 59
+
+### Function Expressions
+
+
+
+## Scope
+
+### Global Scope
+In global scope, variables are declared outside of blocks, they are global variables.
+
+### Block Scope
+When a variable is defined inside a block, it is only accessible to the code within the curly braces {}. Variables that are declared with block scope are known as local variables. Blocks are statements that exist within curly braces {}.
+
+### Scope Pollution
+
+Scope pollution is when we have too many global variables that exist in the global namespace.
+When you declare global variables, they go to the global namespace. The global namespace allows the variables to be accessible from anywhere in the program.
+Global namespace is the space in our code that contains globally scoped information.
+
+### Practice Good Scoping
+
+We should follow best practices for scoping our variables as tightly as possible using block scope.
+* It’s easier to maintain your code, since your code will be modular.
+* It makes your code more understandable
+* It will save memory in your code because it will cease to exist after the block finishes running.
+
+En informatique, la programmation modulaire reprend l'idée de fabriquer un produit (le programme) à partir de composants (les modules). Ce style de programmation facilite grandement l'amélioration progressive, la ré-utilisabilité et le partage du code, et est particulièrement utile pour la réalisation de bibliothèques.
+
+
+
+' caractère
+" chaine de caractère
+typage de variable
