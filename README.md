@@ -200,10 +200,11 @@ transformé en :
 A function declaration consists of:
 
 The function keyword.
-The name of the function, or its identifier, followed by parentheses.
+The name of the function, or its **identifier**, followed by parentheses.
 A function body, or the block of statements required to perform a specific task, enclosed in the function’s curly brackets, { }.
 
- 
+identifier is greetWorld in the following:
+
 > function greetWorld() {
 >   console.log('Hello, World!');
 > }
@@ -288,7 +289,47 @@ We can use functions to section off small bits of logic or tasks, then use them 
 
 ### Function Expressions
 
+Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
 
+> const calculateArea = function(width, height) {
+>     const area = width * height;
+>     return area;
+> };
+
+To call the function expression:
+> variableName(argument1, argument2)
+
+### Arrow Functions
+
+A shorter way to write functions by using the special “fat arrow” () => notation.
+
+> const rectangleArea = (width, height) => {
+>   let area = width * height;
+>   return area;
+> };
+
+#### Concise Body Arrow Functions
+
+If we have a function:
+
+> const squareNum = (num) => {
+>   return num * num;
+> };
+
+We can refactor the function to:
+
+> const squareNum = num => num * num;
+
+So for one parameter:
+> const functionName = paramOne => {};
+
+For multiple parameters:
+> const functionName = (paramOne, paraTwo) => {};
+
+For zero parameter:
+> const functionName = () => {};
+
+https://www.codecademy.com/courses/introduction-to-javascript/lessons/functions/exercises/concise-body-arrow
 
 ## Scope
 
