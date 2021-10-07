@@ -86,6 +86,8 @@ JavaScript has the built-in Math object or Number object. They are collections o
 
 Var, let, const
 
+https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences-b0f14caa2049
+
 * L’instruction let 
   * pas obligatoire de déclarer une variable avec sa valeur initiale
   * on peut modifier sa valeur après sa déclaration
