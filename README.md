@@ -4,6 +4,14 @@
 ! text in orange
 # text in gray
 ```
+syntax github
+syntax pandoc plus avancé
+
+```javascript
+```
+pandoc
+
+
 # memo-javascript
 
 ## Introduction
@@ -12,18 +20,24 @@
 
 In JavaScript, the console keyword refers to an object, a collection of data and actions.
 One action, or method, that is built into the console object is the .log() method. 
-> console.log(5); 
+```javascript
+console.log(5); 
+```
 
 ### Comments
 #### A single line comment 
-> // Prints 5 to the console
-> console.log(5);
+```javascript
+// Prints 5 to the console
+console.log(5);
+```
 
 #### A multi-line comment 
-> /*
-> This is all commented, none of this is going to run!
-> console.log(99);
-> */
+```javascript
+/*
+This is all commented, none of this is going to run!
+console.log(99);
+*/
+```
 
 ### Data Types
 
@@ -47,21 +61,24 @@ The first 6 of those types are considered **primitive data** types.
 * Remainder: %
 
 ### String Concatenation
+```javascript
+console.log('front ' + 'space'); 
+// Prints 'front space'
+console.log('back' + ' space'); 
+// Prints 'back space'
+console.log('no' + 'space'); 
+// Prints 'nospace'
+console.log('middle' + ' ' + 'space'); 
+// Prints 'middle space'
+```
 
-> console.log('front ' + 'space'); 
-> // Prints 'front space'
-> console.log('back' + ' space'); 
-> // Prints 'back space'
-> console.log('no' + 'space'); 
-> // Prints 'nospace'
-> console.log('middle' + ' ' + 'space'); 
-> // Prints 'middle space'
 
 ### Properties
 
 When you introduce a new piece of data into a JavaScript program, the browser saves it as an instance of the data type. Every string instance has a property called length.
-
-> console.log('Hello'.length); // Prints 5
+```javascript
+console.log('Hello'.length); // Prints 5
+```
 
 ### Methods
 
@@ -70,17 +87,20 @@ We call, or use, these methods by appending an instance with:
 * a period (the dot operator) (We can access properties and methods by using the ., dot operator)
 * the name of the method
 * opening and closing parentheses
-
-> console.log('hello'.toUpperCase()); // Prints 'HELLO'
-> console.log('Hey'.startsWith('H')); // Prints true
+```javascript
+console.log('hello'.toUpperCase()); // Prints 'HELLO'
+console.log('Hey'.startsWith('H')); // Prints true
 > console.log('    Remove whitespace   '.trim());
+```
+
 
 ### Built-in Objects
 
 JavaScript has the built-in Math object or Number object. They are collections of methods and properties that JavaScript provides.
-
-> console.log(Math.floor(Math.random() * 100)); // Prints a random whole number between 0 and 100
-> console.log(Number.isInteger(2017));
+```javascript
+console.log(Math.floor(Math.random() * 100)); // Prints a random whole number between 0 and 100
+console.log(Number.isInteger(2017));
+```
 
 ## Variables
 
@@ -106,12 +126,13 @@ https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences
 
 ### If Statement
 ### If...Else Statements
-
-> if (false) {
->  console.log('The code in this block will not run.');
->} else {
->  console.log('But the code in this block will!');
->}
+```javascript
+if (false) {
+ console.log('The code in this block will not run.');
+} else {
+ console.log('But the code in this block will!');
+}
+```
 
 ### Comparison Operators
 * Less than: <
@@ -126,6 +147,39 @@ https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences
 * the or operator (||)
 * the not operator, otherwise known as the bang operator (!)
 
+#### Logical Operators - advanced
+
+ET binaire (&)
+```javascript
+const a = 5;        // 00000000000000000000000000000101
+const b = 3;        // 00000000000000000000000000000011
+
+console.log(a & b); // 00000000000000000000000000000001
+// expected output: 1
+```
+
+Bitwise NOT (~)
+```javascript
+const a = 5;     // 00000000000000000000000000000101
+const b = -3;    // 11111111111111111111111111111101
+
+console.log(~a); // 11111111111111111111111111111010
+// expected output: -6
+
+console.log(~b); // 00000000000000000000000000000010
+// expected output: 2
+```
+
+OU exclusif binaire (^)
+```javascript
+const a = 5;        // 00000000000000000000000000000101
+const b = 3;        // 00000000000000000000000000000011
+
+console.log(a ^ b); // 00000000000000000000000000000110
+// expected output: 6
+```
+
+
 ### Truthy and Falsy
 The list of falsy values includes:
 
@@ -136,64 +190,70 @@ The list of falsy values includes:
 * NaN, or Not a Number
 
 ### Truthy and Falsy Assignment
-
-> let defaultName;
-> if (username) {
->  defaultName = username;
-> } else {
->  defaultName = 'Stranger';
-> }
+```javascript
+let defaultName;
+if (username) {
+ defaultName = username;
+} else {
+ defaultName = 'Stranger';
+}
+```
 
 We can use a **short-hand syntax** for the code above:
-
-> let defaultName = username || 'Stranger';
+```javascript
+let defaultName = username || 'Stranger';
+```
 
 Because || or statements check the left-hand condition first, the variable defaultName will be assigned the actual value of username if it is truthy, and it will be assigned the value of 'Stranger' if username is falsy. This concept is also referred to as **short-circuit evaluation**.
 
 ### Ternary Operator
+```javascript
+let favoritePhrase = 'Love That!';
 
-> let favoritePhrase = 'Love That!';
-
-> if (favoritePhrase === 'Love That!') {
->   console.log('I love that!');
-> } else {
->   console.log("I don't love that!");
-> }
+if (favoritePhrase === 'Love That!') {
+  console.log('I love that!');
+} else {
+  console.log("I don't love that!");
+}
+```
 
 transformé en :
-
-> favoritePhrase === 'Love That!' ? console.log('I love that!') : console.log("I don't love that!");
+```javascript
+favoritePhrase === 'Love That!' ? console.log('I love that!') : console.log("I don't love that!");
+```
 
 ### Else If Statements
-
-> let stopLight = 'yellow';
+```javascript
+let stopLight = 'yellow';
  
-> if (stopLight === 'red') {
->   console.log('Stop!');
-> } else if (stopLight === 'yellow') {
->   console.log('Slow down.');
-> } else {
->   console.log('Caution, unknown!');
-> }
+if (stopLight === 'red') {
+  console.log('Stop!');
+} else if (stopLight === 'yellow') {
+  console.log('Slow down.');
+} else {
+  console.log('Caution, unknown!');
+}
+```
 
 ### The switch keyword
+```javascript
+let athleteFinalPosition = 'first place';
 
-> let athleteFinalPosition = 'first place';
-
-> switch (athleteFinalPosition) {
->   case 'first place' :
->   console.log('You get the gold medal!');
->   break;
->   case 'second place' :
->   console.log('You get the silver medal!');
->   break;
->   case 'third place' :
->   console.log('You get the bronze medal!');
->   break;
->   default:
->   console.log('No medal awarded.');
->   break;
-> }
+switch (athleteFinalPosition) {
+  case 'first place' :
+  console.log('You get the gold medal!');
+  break;
+  case 'second place' :
+  console.log('You get the silver medal!');
+  break;
+  case 'third place' :
+  console.log('You get the bronze medal!');
+  break;
+  default:
+  console.log('No medal awarded.');
+  break;
+}
+```
 
 ## Functions
 
@@ -206,130 +266,153 @@ The name of the function, or its **identifier**, followed by parentheses.
 A function body, or the block of statements required to perform a specific task, enclosed in the function’s curly brackets, { }.
 
 identifier is greetWorld in the following:
-
-> function greetWorld() {
->   console.log('Hello, World!');
-> }
+```javascript
+function greetWorld() {
+  console.log('Hello, World!');
+}
+```
 
 **Calling a Function**
-
-> greetWorld(); // Output: Hello, World!
+```javascript
+greetWorld(); // Output: Hello, World!
+```
 
 Be aware of the **hoisting** feature in JavaScript which allows access to function declarations before they’re defined. Since hoisting isn’t considered good practice, we simply want you to be aware of this feature.
-
-> greetWorld(); // Output: Hello, World!
+```javascript
+greetWorld(); // Output: Hello, World!
  
-> function greetWorld() {
->   console.log('Hello, World!');
-> }
+function greetWorld() {
+  console.log('Hello, World!');
+}
+```
 
 ### Parameters and Arguments
 
 When declaring a function, we can specify its parameters. Parameters allow functions to accept input(s) and perform a task using the input(s). 
-
-> function calculateArea(width, height) {
->     console.log(width * height);
-> }
+```javascript
+function calculateArea(width, height) {
+    console.log(width * height);
+}
+```
 
 width, height are parameters.
 
 The values that are passed to the function when it is called are called arguments. Arguments can be passed to the function as values or variables.
+```javascript
+calculateArea(10, 6);
 
-> calculateArea(10, 6);
+```
 
 10, 6 are arguments as values.
 
 or
+```javascript
+const rectWidth = 10;
+const rectHeight = 6;
 
-> const rectWidth = 10;
-> const rectHeight = 6;
-
-> calculateArea(rectWidth, rectHeight);
+calculateArea(rectWidth, rectHeight);
+```
 
 rectWidth, rectHeight are arguments as variables.
 
 ### Default Parameters
-
-> function greeting (name = 'stranger') {
->   console.log(`Hello, ${name}!`)
-> }
+```javascript
+function greeting (name = 'stranger') {
+  console.log(`Hello, ${name}!`)
+}
  
-> greeting('Nick') // Output: Hello, Nick!
-> greeting() // Output: Hello, stranger!
+greeting('Nick') // Output: Hello, Nick!
+greeting() // Output: Hello, stranger!
+```
 
 ### Return
+```javascript
+By default that resulting value is undefined.
 
-> By default that resulting value is undefined.
-
-> function rectangleArea(width, height) {
->   let area = width * height;
-> }
-> console.log(rectangleArea(5, 7)) // Prints undefined
+function rectangleArea(width, height) {
+  let area = width * height;
+}
+console.log(rectangleArea(5, 7)) // Prints undefined
+```
 
 When a return statement is used in a function body, the execution of the function is stopped and the code that follows it will not be executed.
-
-> function rectangleArea(width, height) {
->   if (width < 0 || height < 0) {
->     return 'You need positive integers to calculate area!';
->   }
->   return width * height;
-> }
+```javascript
+function rectangleArea(width, height) {
+  if (width < 0 || height < 0) {
+    return 'You need positive integers to calculate area!';
+  }
+  return width * height;
+}
+```
 
 ### Helper Functions
 
 We can use functions to section off small bits of logic or tasks, then use them when we need to. Writing helper functions can help take large and difficult tasks and break them into smaller and more manageable tasks.
-
-> function multiplyByNineFifths(number) {
->   return number * (9/5);
-> };
+```javascript
+function multiplyByNineFifths(number) {
+  return number * (9/5);
+};
  
-> function getFahrenheit(celsius) {
->   return multiplyByNineFifths(celsius) + 32;
-> };
+function getFahrenheit(celsius) {
+  return multiplyByNineFifths(celsius) + 32;
+};
  
-> getFahrenheit(15); // Returns 59
+getFahrenheit(15); // Returns 59
+```
 
 ### Function Expressions
 
 Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
-
-> const calculateArea = function(width, height) {
->     const area = width * height;
->     return area;
-> };
+```javascript
+const calculateArea = function(width, height) {
+    const area = width * height;
+    return area;
+};
+```
 
 To call the function expression:
-> variableName(argument1, argument2)
+```javascript
+variableName(argument1, argument2)
+```
 
 ### Arrow Functions
 
 A shorter way to write functions by using the special “fat arrow” () => notation.
-
-> const rectangleArea = (width, height) => {
->   let area = width * height;
->   return area;
-> };
+```javascript
+const rectangleArea = (width, height) => {
+  let area = width * height;
+  return area;
+};
+```
 
 #### Concise Body Arrow Functions
 
 If we have a function:
-
-> const squareNum = (num) => {
->   return num * num;
-> };
+```javascript
+const squareNum = (num) => {
+  return num * num;
+};
+```
 
 We can refactor the function to:
-
-> const squareNum = num => num * num;
+```javascript
+const squareNum = num => num * num;
+```
 
 So for one parameter:
-> const functionName = paramOne => {};
+```javascript
+const functionName = paramOne => {};
+```
 
 For multiple parameters:
-> const functionName = (paramOne, paraTwo) => {};
+```javascript
+const functionName = (paramOne, paraTwo) => {};
+```
 
 For zero parameter:
-> const functionName = () => {};
+```javascript
+const functionName = () => {};
+```
 
 https://www.codecademy.com/courses/introduction-to-javascript/lessons/functions/exercises/concise-body-arrow
 
@@ -355,6 +438,154 @@ We should follow best practices for scoping our variables as tightly as possible
 * It will save memory in your code because it will cease to exist after the block finishes running.
 
 En informatique, la programmation modulaire reprend l'idée de fabriquer un produit (le programme) à partir de composants (les modules). Ce style de programmation facilite grandement l'amélioration progressive, la ré-utilisabilité et le partage du code, et est particulièrement utile pour la réalisation de bibliothèques.
+
+## Array
+
+Let’s take a closer look at the syntax in the array example:
+```javascript
+['Keep a journal', 10, true];
+```
+
+* The array is represented by the square brackets [] and the content inside.
+* Each content item inside an array is called an element.
+* There are three different elements inside the array.
+* Each element inside the array is a different data type.
+
+### Accessing Elements
+
+Arrays in JavaScript are zero-indexed, meaning the positions start counting from 0 rather than 1.
+
+You can also access individual characters in a string using bracket notation and the index:
+```javascript
+const hello = 'Hello World';
+console.log(hello[6]);
+// Output: W
+```
+
+### Update Elements
+```javascript
+let seasons = ['Winter', 'Spring', 'Summer', 'Fall'];
+ 
+seasons[3] = 'Autumn';
+console.log(seasons); 
+//Output: ['Winter', 'Spring', 'Summer', 'Autumn']
+```
+
+### Arrays with let and const
+
+Elements in an array declared with const remain mutable.
+```javascript
+let condiments = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];
+console.log(condiments[0] = 'Mayo');
+console.log(condiments = ['Mayo']);
+```
+
+### The .length property
+```javascript
+const newYearsResolutions = ['Keep a journal', 'Take a falconry class'];
+ 
+console.log(newYearsResolutions.length);
+// Output: 2
+```
+### The .push() Method
+```javascript
+const itemTracker = ['item 0', 'item 1', 'item 2'];
+ 
+itemTracker.push('item 3', 'item 4');
+ 
+console.log(itemTracker); 
+// Output: ['item 0', 'item 1', 'item 2', 'item 3', 'item 4'];
+```
+
+### The .pop() Method
+```javascript
+const newItemTracker = ['item 0', 'item 1', 'item 2'];
+ 
+const removed = newItemTracker.pop();
+ 
+console.log(newItemTracker); 
+// Output: [ 'item 0', 'item 1' ]
+console.log(removed);
+// Output: item 2
+```
+
+### More Array Methods
+
+Some arrays methods that are available to JavaScript developers include: .join(), .slice(), .splice(), .shift(), .unshift(), and .concat()
+
+*  the .shift() method to remove the first item from the array
+*  .unshift() method to add 'popcorn' to the beginning of your array
+*  .slice()
+To take a portion from an array:
+```javascript
+const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+console.log(groceryList.slice(1, 4));
+// result [ 'bananas', 'coffee beans', 'brown rice' ]
+```
+*  .indexOf()
+To find the index of an element:
+```javascript
+const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+const pastaIndex = groceryList.indexOf('pasta');
+
+console.log(pastaIndex);
+```
+
+### Arrays and Functions
+
+What happens if we try to change an array inside a function? Does the array keep the change after the function call or is it scoped to inside the function? Yes:
+```javascript
+const flowers = ['peony', 'daffodil', 'marigold'];
+ 
+function addFlower(arr) {
+  arr.push('lily');
+}
+ 
+addFlower(flowers);
+ 
+console.log(flowers); // Output: ['peony', 'daffodil', 'marigold', 'lily']
+```
+
+### Nested Arrays
+```javascript
+const nestedArr = [[1], [2, 3]];
+ 
+console.log(nestedArr[1]); // Output: [2, 3]
+console.log(nestedArr[1][0]); // Output: 2
+```
+
+## Loop
+
+### The For Loop
+
+A for loop contains three expressions separated by ; inside the parentheses:
+
+1. an *initialization* starts the loop and can also be used to declare the iterator variable.
+2. a *stopping condition* is the condition that the iterator variable is evaluated against— if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
+3. an *iteration statement* is used to update the iterator variable on each loop.
+```javascript
+for (let counter = 0; counter < 4; counter++) {
+  console.log(counter);
+}
+```
+
+### Looping in Reverse
+```javascript
+// The loop below loops from 0 to 3. Edit it to loop backwards from 3 to 0
+for (let counter = 3; counter >= 0; counter--){
+  console.log(counter);
+}
+```
+
+### Looping through Arrays
+```javascript
+const animals = ['Grizzly Bear', 'Sloth', 'Sea Lion'];
+for (let i = 0; i < animals.length; i++){
+  console.log(animals[i]);
+}
+```
+
+### Nested Loops
 
 
 
