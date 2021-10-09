@@ -614,6 +614,77 @@ while (counterTwo < 4) {
 }
 ```
 
+### Do...While Statements
+
+A do...while statement says to do a task once and then keep doing it until a specified condition is no longer met.
+
+```javascript
+const firstMessage = 'I will print!';
+const secondMessage = 'I will not print!'; 
+
+// A do while with a stopping condition that evaluates to false
+do {
+ console.log(firstMessage)
+} while (true === false);
+// print 'I will print!'
+ 
+// A while loop with a stopping condition that evaluates to false
+while (true === false){
+  console.log(secondMessage)
+};
+// print nothing
+```
+
+### The break Keyword
+```javascript
+for (let i = 0; i < 99; i++) {
+  if (i > 2 ) {
+     break;
+  }
+  console.log('Banana.');
+}
+ 
+console.log('Orange you glad I broke out the loop!');
+```
+This is the output for the above code:
+```javascript
+Banana.
+Banana.
+Banana.
+Orange you glad I broke out the loop!
+```
+
+## Iterators
+
+### Functions as Data
+
+JavaScript functions behave like any other data type in the language; we can assign functions to variables, and we can reassign them to new variables.
+If we wanted to rename this function without sacrificing the source code? We can re-assign the function to a variable with a suitably short name:
+```javascript
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+}
+
+// Write your code below
+
+let is2p2 = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+
+is2p2();
+```
+Since functions are a type of object, they have properties such as .length and .name and methods such as .toString().
+```javascript
+console.log(is2p2.name);
+```
+
+### Functions as Parameters
+
+A higher-order function is a function that either accepts functions as parameters, returns a function, or both!
+We call the functions that get passed in as parameters and invoked callback functions because they get called during the execution of the higher-order function.
+
 ' caractère
 " chaine de caractère
 typage de variable
