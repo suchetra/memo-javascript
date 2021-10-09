@@ -586,8 +586,33 @@ for (let i = 0; i < animals.length; i++){
 ```
 
 ### Nested Loops
+```javascript
+const bobsFollowers = ['John', 'Pierre', 'Charles', 'Chris'];
+const tinasFollowers = ['Mary', 'Pierre', 'Charles'];
+var mutualFollowers = [];
 
+for (let i = 0; i < bobsFollowers.length; i++){
+  for (let j = 0; j < tinasFollowers.length; j++){
+    if (bobsFollowers[i] === tinasFollowers[j]) {
+        mutualFollowers.push(tinasFollowers[j])
+    } 
+  }
+};
+```
+### The While Loop
 
+The syntax of a for loop is ideal when we know how many times the loop should run, but we don’t always know this in advance.
+
+Be careful of infinite loop if there is no iteration statement.
+
+```javascript
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+```
 
 ' caractère
 " chaine de caractère
