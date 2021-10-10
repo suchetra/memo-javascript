@@ -4,13 +4,11 @@
 ! text in orange
 # text in gray
 ```
-syntax github
-syntax pandoc plus avancé
+Markdown syntaxe GitHub vs syntaxe Pandoc plus avancé
 
-```javascript
-```
-pandoc
-
+En générale :
+* ' pour un caractère
+* " pour chaîne de caractères
 
 # memo-javascript
 
@@ -685,6 +683,25 @@ console.log(is2p2.name);
 A higher-order function is a function that either accepts functions as parameters, returns a function, or both!
 We call the functions that get passed in as parameters and invoked callback functions because they get called during the execution of the higher-order function.
 
-' caractère
-" chaine de caractère
-typage de variable
+With callbacks, we pass in the function itself by typing the function name without the parentheses (that would evaluate to the result of calling the function):
+```javascript
+const timeFuncRuntime = funcParameter => {
+   let t1 = Date.now();
+   funcParameter();
+   let t2 = Date.now();
+   return t2 - t1;
+}
+ 
+const addOneToOne = () => 1 + 1;
+ 
+timeFuncRuntime(addOneToOne);
+```
+In this example, we invoked timeFuncRuntime() with an anonymous function 
+```javascript
+timeFuncRuntime(() => {
+  for (let i = 10; i>0; i--){
+    console.log(i);
+  }
+});
+```
+
