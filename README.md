@@ -725,3 +725,196 @@ timeFuncRuntime(() => {
 });
 ```
 
+## Objects
+
+### Creating Object Literals
+
+We use curly braces, {}, to designate an object literal:
+```javascript
+let spaceship = {}; // spaceship is an empty object
+```
+We fill an object with unordered data. This data is organized into *key-value* pairs.
+Keys are strings, but when we have a key that does not have any special characters in it, JavaScript allows us to omit the quotation marks:
+```javascript
+// An object literal with two key-value pairs
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+```
+
+### Accessing Properties
+```javascript
+let spaceship = {
+  homePlanet: 'Earth',
+  color: 'silver'
+};
+spaceship.homePlanet; // Returns 'Earth',
+spaceship.color; // Returns 'silver',
+spaceship.favoriteIcecream; // Returns undefined
+```
+
+### Bracket Notation
+
+We must use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.
+```javascript
+let spaceship = {
+  'Fuel Type': 'Turbo Fuel',
+  'Active Duty': true,
+  homePlanet: 'Earth',
+  numCrew: 5
+};
+spaceship['Active Duty'];   // Returns true
+spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+spaceship['numCrew'];   // Returns 5
+spaceship['!!!!!!!!!!!!!!!'];   // Returns undefined
+```
+With bracket notation you can also use a variable inside the brackets to select the keys of an object. 
+```javascript
+let returnAnyProp = (objectName, propName) => objectName[propName];
+ 
+returnAnyProp(spaceship, 'homePlanet'); // Returns 'Earth'
+```
+
+### Property Assignment
+
+One of two things can happen with property assignment:
+
+*  If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.
+*  If there was no property with that name, a new property will be added to the object.
+```javascript
+const spaceship = {type: 'shuttle'};
+spaceship = {type: 'alien'}; // TypeError: Assignment to constant variable.
+spaceship.type = 'alien'; // Changes the value of the type property
+spaceship.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
+```
+
+You can delete a property from an object with the delete operator.
+```javascript
+const spaceship = {
+  'Fuel Type': 'Turbo Fuel',
+  homePlanet: 'Earth',
+  mission: 'Explore the universe' 
+};
+ 
+delete spaceship.mission;  // Removes the mission property
+```
+
+### Methods
+
+Each key-value pair is a property—when a property is a function it is known as a method.
+
+We can include methods in our object literals by creating ordinary, comma-separated key-value pairs. The key serves as our method’s name, while the value is an anonymous function expression.
+```javascript
+const alienShip = {
+  invade: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+```
+With the new method syntax introduced in ES6 we can omit the colon and the function keyword.
+```javascript
+const alienShip = {
+  invade () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+```
+Object methods are invoked by appending the object’s name with the dot operator followed by the method name and parentheses:
+```javascript
+alienShip.invade(); // Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+```
+
+### Nested Objects
+```javascript
+let spaceship = {
+  passengers: null
+};
+```
+Make one passenger object in the array that has at least one key-value pair on it:
+```javascript
+spaceship.passengers = [
+  {
+    firstName: 'John',
+    lastName: 'Tree'
+  }
+];
+console.log(spaceship.passengers); // [ { firstName: 'Tree', lastName: 'Tree' } ]
+```
+Create a variable firstPassenger and assign the first passenger as its value (the element in the 0th index of the spaceship.passengers array you just made):
+```javascript
+const firstPassenger = (spaceship.passengers[0]);
+```
+
+### Pass By Reference
+https://www.codecademy.com/courses/introduction-to-javascript/lessons/objects/exercises/pass-by-reference
+
+Objects are passed by reference. This means when we pass a variable assigned to an object into a function as an argument, the computer interprets the parameter name as pointing to the space in memory holding that object.
+```javascript
+const spaceship = {
+  homePlanet : 'Earth',
+  color : 'silver'
+};
+ 
+let paintIt = obj => {
+  obj.color = 'glorious gold'
+};
+ 
+paintIt(spaceship);
+ 
+spaceship.color // Returns 'glorious gold'
+```
+
+Our function paintIt() permanently changed the color of our spaceship object. However, reassignment of the spaceship variable wouldn’t work in the same way:
+
+```javascript
+let spaceship = {
+  homePlanet : 'Earth',
+  color : 'red'
+};
+let tryReassignment = obj => {
+  obj = {
+    identified : false, 
+    'transport type' : 'flying'
+  }
+  console.log(obj) // Prints {'identified': false, 'transport type': 'flying'}
+ 
+};
+tryReassignment(spaceship) // The attempt at reassignment does not work.
+spaceship // Still returns {homePlanet : 'Earth', color : 'red'};
+ 
+spaceship = {
+  identified : false, 
+  'transport type': 'flying'
+}; // Regular reassignment still works.
+```
+
+### Looping Through Objects
+
+*for...in* will execute a given block of code for each property in an object.
+```javascript
+let spaceship = {
+  crew: {
+    captain: { 
+      name: 'Lily', 
+      degree: 'Computer Engineering', 
+      cheerTeam() { console.log('You got this!') } 
+    },
+    'chief officer': { 
+      name: 'Dan', 
+      degree: 'Aerospace Engineering', 
+      agree() { console.log('I agree, captain!') } 
+    }
+  }
+}; 
+ 
+// for...in
+for (let crewMember in spaceship.crew) {
+  console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+}
+or
+for (let crewMember in spaceship.crew) {
+  console.log(crewMember + ': ' + spaceship.crew[crewMember].name)
+};
+
+```
