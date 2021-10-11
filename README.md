@@ -118,7 +118,27 @@ https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences
   * Comme let, on peut aussi ne pas définir de valeur initiale, la variable aura donc une valeur undefined
   * La portée de la variable est celle du contexte dans lequel elle est déclarée (dans ou hors fonction)
   * La déclaration sans instruction var (exemple : maVar = ‘test’) revient à écrire var maVar = ‘test’ dans un contexte global. La variable devient donc une propriété de l’objet global (Objet window en javascript)
-https://medium.com/@vincent.bocquet/var-let-const-en-js-quelles-diff%C3%A9rences-b0f14caa2049
+
+The main difference is scoping rules. Variables declared by var keyword are scoped to the immediate function body (hence the function scope) while let variables are scoped to the immediate enclosing block denoted by { } (hence the block scope).
+```javascript
+function run() {
+  var foo = "Foo";
+  let bar = "Bar";
+
+  console.log(foo, bar); // Foo Bar
+
+  {
+    var moo = "Mooo"
+    let baz = "Bazz";
+    console.log(moo, baz); // Mooo Bazz
+  }
+
+  console.log(moo); // Mooo
+  console.log(baz); // ReferenceError
+}
+
+run();
+```
 
 ## CONDITIONAL STATEMENTS
 
