@@ -672,6 +672,14 @@ Banana.
 Orange you glad I broke out the loop!
 ```
 
+### for of
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+
+itère sur les valeurs
+
+for in, itère sur les index
+
 ## Iterators
 
 ### Functions as Data
