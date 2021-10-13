@@ -381,6 +381,8 @@ getFahrenheit(15); // Returns 59
 ### Function Expressions
 
 Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
+fonction anonyme https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
 ```javascript
 const calculateArea = function(width, height) {
     const area = width * height;
@@ -710,6 +712,8 @@ console.log(is2p2.name);
 
 A higher-order function is a function that either accepts functions as parameters, returns a function, or both!
 We call the functions that get passed in as parameters and invoked callback functions because they get called during the execution of the higher-order function.
+
+On parle de récursivité.
 
 With callbacks, we pass in the function itself by typing the function name without the parentheses (that would evaluate to the result of calling the function):
 ```javascript
